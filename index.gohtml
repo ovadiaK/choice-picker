@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="/assets/Earth_Water_Recycling_Woofer.svg"/>
+    <link rel="stylesheet" href="assets/style.css">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<h1>hello world</h1>
+<h1>Choice-Picker</h1>
+<h2>Command history</h2>
+<p>{{.History}}</p>
+<main>
+    <form action=""></form>
+    {{range  $i, $e := .Current}}
+        <form action="/" method="get">
+            <input type="number" value="{{$i}}" name="choice" readonly hidden>
+            <button type="submit">{{$e.Text}}</button>
+        </form>
+    {{end}}
+    <form action=""></form>
+</main>
 </body>
 </html>

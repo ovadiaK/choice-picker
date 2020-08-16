@@ -1,0 +1,29 @@
+body {
+    text-align: center;
+    font-size: 20px;
+}
+
+h1 {
+    color: red;
+    font-size: 2em;
+}
+
+p {
+    height: 2em;
+}
+
+main form {
+    display: inline;
+}
+
+button {
+    background: linear-gradient(120deg, blanchedalmond, wheat);
+    border: burlywood 2px solid;
+    border-radius: 20%;
+    font-size: 1.5em;
+}
+
+button:active {
+    background: linear-gradient(120deg, wheat, blanchedalmond);
+    border: firebrick 2px solid;
+}
