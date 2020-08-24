@@ -35,6 +35,7 @@ func init() {
 func main() {
 	http.HandleFunc("/", handler)
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets/"))))
+	fmt.Println("server started on localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
