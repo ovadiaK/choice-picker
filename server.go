@@ -54,7 +54,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 func resetHandler(w http.ResponseWriter, r *http.Request) {
-
+	CurrentState = State{}
+	http.Redirect(w, r, "/", 302)
 }
 func (s *State) getChoice(r *http.Request) error {
 	n, err := strconv.Atoi(r.FormValue("choice"))
