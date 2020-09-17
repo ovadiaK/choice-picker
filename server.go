@@ -34,6 +34,7 @@ func init() {
 
 func main() {
 	http.HandleFunc("/", handler)
+	http.HandleFunc("/reset", resetHandler)
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets/"))))
 	fmt.Println("server started on localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
@@ -52,6 +53,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 }
+func resetHandler(w http.ResponseWriter, r *http.Request) {
+
+}
 func (s *State) getChoice(r *http.Request) error {
 	n, err := strconv.Atoi(r.FormValue("choice"))
 	if err != nil {
@@ -69,8 +73,11 @@ func (s *State) setChoice() {
 	}
 	s.Current = currentChoices
 }
+func (s *State) reset() {
+	s.History = ""
+}
 func makeChoice() Choice {
-	possibilities := []string{"a", "b", "ch", "ts", "i", "o", "u", "t", "p", "qu", "e", "e", "a", "o", "i", "u", "'"}
+	possibilities := []string{"a", "b", "ch", "ts", "i", "o", "u", "t", "p", "qu", "e", "e", "a", "o", "i", "u", "'", "m", "n"}
 	n := rand.Intn(len(possibilities))
 	letter := possibilities[n]
 	c := Choice{
